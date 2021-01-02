@@ -53,7 +53,7 @@ and lint via
 
 ## Support
 
-Please open [an issue](https://github.com/n2geoff/router/issues/new) for support.
+Please open [an issue](https://github.com/n2geoff/routes/issues/new) for support.
 
 ## Contributing
 
