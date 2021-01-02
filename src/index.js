@@ -1,4 +1,4 @@
-class Router {
+class Routes {
     // TODO: add default /error
     _routes = {};
 
