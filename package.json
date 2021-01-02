@@ -7,8 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "build": "npx gulp default",
-    "test": "npm run build && npm run lint && deno run test/index.spec.js",
+    "build": "esbuild src/index.js --minify --sourcemap --outfile=dist/routes.min.js",
+    "test": "npm run lint && npm run build && deno run test/index.spec.js",
     "lint": "npx eslint src/index.js"
   },
   "keywords": [
@@ -20,10 +20,6 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.16.0",
-    "gulp": "^4.0.2",
-    "gulp-minify": "^3.1.0",
-    "gulp-rollup-2": "^1.2.1",
-    "gulp-strip-comments": "^2.5.2"
+    "eslint": "^7.16.0"
   }
 }
