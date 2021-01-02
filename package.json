@@ -18,8 +18,7 @@
   ],
   "author": "Geoff Doty",
   "license": "MIT",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "eslint": "^7.16.0",
     "gulp": "^4.0.2",
