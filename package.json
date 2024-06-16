@@ -1,25 +1,27 @@
 {
-  "name": "routes",
-  "version": "1.0.0",
-  "description": "minimalistic hash router",
-  "main": "src/index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "build": "esbuild src/index.js --minify --sourcemap --outfile=dist/routes.min.js",
-    "test": "npm run lint && npm run build && deno run test/index.spec.js",
-    "lint": "npx eslint src/index.js"
-  },
-  "keywords": [
-    "hash",
-    "router",
-    "spa"
-  ],
-  "author": "Geoff Doty",
-  "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "^7.16.0"
-  }
+    "name": "router",
+    "version": "2.0.0",
+    "description": "minimalistic hash router",
+    "main": "src/index.js",
+    "type": "module",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "build": "npx esbuild src/index.js --minify --sourcemap --outfile=dist/routes.min.js",
+        "test": "node ./test/index.spec.js",
+        "lint": "npx eslint src/index.js",
+        "release": "npm run lint && npm run build && node ./test/index.spec.js"
+    },
+    "keywords": [
+        "hash",
+        "router",
+        "spa"
+    ],
+    "author": "Geoff Doty",
+    "license": "MIT",
+    "devDependencies": {
+        "eslint": "^9.5.0",
+        "testit.run": "^1.1.3"
+    }
 }
