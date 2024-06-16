@@ -1,4 +1,4 @@
-import test from "../node_modules/testit/dist/testit.js";
+import test from "../node_modules/testit.run/dist/testit.min.js";
 import Routes from "../src/index.js";
 
 test.it({
@@ -6,4 +6,3 @@ test.it({
         test.assert(Routes);
     }
 }).run();
-

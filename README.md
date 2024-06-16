@@ -2,14 +2,14 @@
 
 > minimalistic hash-based router
 
-Tiny (>1kb) static-routes no-frills hash-based router for single-page-apps.
+Tiny (~1kb) static-routes no-frills hash-based router for single-page-apps.
 
-query data is passed to the callback function as JSON
+> NOTE: Route Links expected as "#/". hashes ("#") work as expected
 
 
 ## API
 
-    Routes([routes = {}])
+    Routes([routes = {}]).start();
 
 - `routes` {Object} - preloaded {route:function, ...} routes (optional)
 
@@ -17,39 +17,57 @@ query data is passed to the callback function as JSON
 
 - `add` adds a route to the registry
 - `remove` deletes a route from the registry
-- `list` returns an object of registered routes
 - `route` triggers a route
-- `params` converts a querystring into JSON
+- `start` initializes the router to watch for changes
 
+### Utility Methods
+- `Routes.params(qs)` converts a query string into JSON
 
 ## Quick Start
-
 
 ```js
 // routes.js
 
-import Routes from 'routes';
+import Routes from 'dist/routes.min.js';
 
+const routes = new Routes({
+    routes: {
+        "/": console.log("Home Page"),
+        "/one": console.log("One"),
+        "/two/:id": (vals, qs) => console.log(vals[0], qs),
+        "/three/:id/:greet": console.log,
+        "/four/?name=geoff": console.log,
+    }
+}).start();
+```
+
+or you can define your routes one at a time via
+
+```js
 const routes = new Routes();
 
 routes.add('/', function() {
     console.log('yeah, we hit our route');
 });
 
+// call start last
+routes.start();
+
 ```
-
-> TODO: add more documentation
-
 
 ## Tests
 
     npm test
 
-> NOTE: requires `deno` to execute module-based client-side test runner
-
 and lint via
 
     npm run lint
+
+## TODO
+
+- write tests
+- params return as an array, would like this to be a key/value object
+  that is merged with query string params
 
 ## Support
 
@@ -61,4 +79,4 @@ Anyone is welcome to contribute, however, if you decide to get involved, please 
 
 ## License
 
-[MIT](LICENSE) 2021 Geoff Doty
+[MIT](LICENSE) 2024 Geoff Doty
